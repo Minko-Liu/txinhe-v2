@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>TONG XIN HE COMPANY</title>
+	<meta name="description" content="TONG XIN HE COMPANY">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="../styles/main.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<main>
+		<section class="product-info-section">
+			<div class="container">
+				<div class="product-info-grid">
+					<div class="product-image-section">
+						<button class="scroll-button prev">
+							<i class="fas fa-chevron-left"></i>
+						</button>
+						<div class="product-image-scroll">
+							<div class="product-image-item">
+								<div class="product-image-wrapper">
+									<img src="../images/product/VENEER.png" alt="VENEER">
+								</div>
+							</div>
+							<div class="product-image-item">
+								<div class="product-image-wrapper">
+									<img src="../images/product/VENEER-2.png" alt="VENEER">
+								</div>
+							</div>
+							<div class="product-image-item">
+								<div class="product-image-wrapper">
+									<img src="../images/product/VENEER-3.png" alt="VENEER">
+								</div>
+							</div>
+						</div>
+						<button class="scroll-button next">
+							<i class="fas fa-chevron-right"></i>
+						</button>
+						<div class="scroll-indicator"></div>
+					</div>
+					<div class="product-specs-table">
+						<table class="spec-table">
+							<tr><td>Product Name </td><td>VENEER</td></tr>
+							<tr><td>Usage</td><td>Plywood</td></tr>
+							<tr><td>Thickness</td><td>Customized</td></tr>
+							<tr><td>MOQ</td><td>1x40HQ</td></tr>
+							<tr><td>Payment Terms</td><td>Telegraphic Transfer(TT)/Letter of Credit(LC)</td></tr>
+							<tr><td>Supply ability </td><td>60000m3/month</td></tr>
+							<tr><td>Grade</td><td>First-Class/B1/B2/C</td></tr>
+							<tr><td>Material</td><td>Mix hardwood /Engineered veneer/Eucalyptus/ Poplar</td></tr>
+							<tr><td>Standard Size </td><td>1220x2440mm</td></tr>
+							<tr><td>Thickness tolerance</td><td>      +-0.005mm</td></tr>
+							<tr><td>Moisture Content</td><td>8-12%</td></tr>
+							<tr><td>Packing</td><td>Suitable for Long Distance Ocean Transportation</td></tr>
+							<tr><td>Delivery time</td><td>1week upon advance TT/LC received</td></tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- 图片预览模态框 -->
+	<div class="image-modal">
+		<div class="modal-content">
+			<button class="close-modal">&times;</button>
+			<img src="" alt="Preview">
+		</div>
+	</div>
+
+	<footer>
+		<div class="container">
+			<p>&copy; 2025 TONG XIN HE COMPANY</p>
+		</div>
+	</footer>
+
+	<script>
+		// 图片滚动功能
+		const scrollContainer = document.querySelector('.product-image-scroll');
+		const prevButton = document.querySelector('.scroll-button.prev');
+		const nextButton = document.querySelector('.scroll-button.next');
+		const scrollIndicator = document.querySelector('.scroll-indicator');
+		const images = document.querySelectorAll('.product-image-item');
+
+		// 创建滚动指示点
+		images.forEach((_, index) => {
+			const dot = document.createElement('div');
+			dot.classList.add('scroll-dot');
+			if (index === 0) dot.classList.add('active');
+			scrollIndicator.appendChild(dot);
+		});
+
+		const dots = document.querySelectorAll('.scroll-dot');
+
+		// 更新活动指示点
+		function updateDots() {
+			const scrollPosition = scrollContainer.scrollLeft;
+			const containerWidth = scrollContainer.offsetWidth;
+			const activeIndex = Math.round(scrollPosition / containerWidth);
+			
+			dots.forEach((dot, index) => {
+				dot.classList.toggle('active', index === activeIndex);
+			});
+		}
+
+		// 点击指示点滚动到对应图片
+		dots.forEach((dot, index) => {
+			dot.addEventListener('click', () => {
+				const containerWidth = scrollContainer.offsetWidth;
+				scrollContainer.scrollTo({
+					left: containerWidth * index,
+					behavior: 'smooth'
+				});
+			});
+		});
+
+		// 左右滚动按钮
+		prevButton.addEventListener('click', () => {
+			const containerWidth = scrollContainer.offsetWidth;
+			scrollContainer.scrollBy({
+				left: -containerWidth,
+				behavior: 'smooth'
+			});
+		});
+
+		nextButton.addEventListener('click', () => {
+			const containerWidth = scrollContainer.offsetWidth;
+			scrollContainer.scrollBy({
+				left: containerWidth,
+				behavior: 'smooth'
+			});
+		});
+
+		// 监听滚动更新指示点
+		scrollContainer.addEventListener('scroll', updateDots);
+
+		// 图片预览功能
+		const imageItems = document.querySelectorAll('.product-image-item img');
+		const modal = document.querySelector('.image-modal');
+		const modalImg = document.querySelector('.modal-content img');
+		const closeBtn = document.querySelector('.close-modal');
+
+		imageItems.forEach(item => {
+			item.addEventListener('click', () => {
+				modal.classList.add('active');
+				modalImg.src = item.src;
+			});
+		});
+
+		closeBtn.addEventListener('click', () => {
+			modal.classList.remove('active');
+		});
+
+		modal.addEventListener('click', (e) => {
+			if (e.target === modal) {
+				modal.classList.remove('active');
+			}
+		});
+	</script>
+</body>
+</html>

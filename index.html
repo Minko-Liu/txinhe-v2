@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TONGXINHE</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="nav-container">
+        <div class="logo">
+            <img src="images/logo.png" alt="logo">
+        </div>
+        <div class="nav-links">
+            <a href="#home">HOME</a>
+            <a href="#about">About Us</a>
+            <a href="#products">Product</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#test-center">Test Center</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+        <div class="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- HOME -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1 data-aos="fade-up">TONGXINHE</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Setting the Benchmark, Crafting a Premium Lifestyle</p>
+        </div>
+        <div id="hero-3d" class="hero-3d"></div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 data-aos="fade-up">About Us</h2>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <p>TONG XIN HE COMPANY, with more than a decade professional
+                        working experiences, specially focuses on plywood products
+                        manufacturing and international sales. Our two production bases
+                        are located in Xuzhou and Linyi city which is the largest plywood
+                        processing base in China.</p>
+                    <p>We specialize in producing film faced plywood, commercial plywood ,Melamine faced MDF, etc. Our
+                        products are certified by CE, CARB P2, and our management system are certified by ISO 9001 and
+                        ISO14001, all the products are exported to European countries, American, Southeast Asia
+                        countries. </p>
+                </div>
+                <div class="about-image" data-aos="fade-left">
+                    <img src="images/b2.jpg" alt="About Us">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <h2 data-aos="fade-up">Product</h2>
+            <div class="product-categories">
+                <div class="product-card" data-aos="zoom-in">
+                    <a href="products/pp.html" class="product-link" target="_blank">
+                        <div class="product-image">
+                            <img src="images/pp.jpg" alt="PP Plastic Film Face Plywood">
+                        </div>
+                        <h3>PP Plastic Film Face Plywood</h3>
+                        <!-- <p>天然优质，环保耐用</p> -->
+                    </a>
+                </div>
+                <div class="product-card" data-aos="zoom-in" data-aos-delay="100">
+                    <a href="products/film.html" class="product-link" target="_blank">
+                        <div class="product-image">
+                            <img src="images/film.png" alt="Film Face Plywood">
+                        </div>
+                        <h3>Film Face Plywood</h3>
+                        <!-- <p>稳定性强，应用广泛</p> -->
+                    </a>
+                </div>
+                <div class="product-card" data-aos="zoom-in" data-aos-delay="200">
+                    <a href="products/commercial.html" class="product-link" target="_blank">
+                        <div class="product-image">
+                            <img src="images/commercial.png" alt="Commercial Plywood">
+                        </div>
+                        <h3>Commercial Plywood</h3>
+                        <!-- <p>环保无害，品质保证</p> -->
+                    </a>
+                </div>
+
+                <div class="product-card" data-aos="zoom-in" data-aos-delay="200">
+                    <a href="products/lvl.html" class="product-link" target="_blank">
+                        <div class="product-image">
+                            <img src="images/LVL.png" alt="LVL">
+                        </div>
+                        <h3>LVL</h3>
+                        <!-- <p>环保无害，品质保证</p> -->
+                    </a>
+                </div>
+
+                <div class="product-card" data-aos="zoom-in" data-aos-delay="200">
+                    <a href="products/mdf.html" class="product-link" target="_blank">
+                        <div class="product-image">
+                            <img src="images/MDF.png" alt="MDF">
+                        </div>
+                        <h3>MDF</h3>
+                        <!-- <p>环保无害，品质保证</p> -->
+                    </a>
+                </div>
+
+                <div class="product-card" data-aos="zoom-in" data-aos-delay="200">
+                    <a href="products/veneer.html" class="product-link" target="_blank">
+                        <div class="product-image">
+                            <img src="images/VENEER.png" alt="VENEER">
+                        </div>
+                        <h3>VENEER</h3>
+                        <!-- <p>环保无害，品质保证</p> -->
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品展示 -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 data-aos="fade-up">Gallery</h2>
+            <div class="gallery-grid">
+                <!-- 图片将通过JavaScript动态加载 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Test Center -->
+    <section id="test-center" class="test-center-section">
+        <div class="container">
+            <h2 data-aos="fade-up">Test Center</h2>
+            <div class="test-categories">
+                <div class="test-card" data-aos="fade-up">
+                    <img src="images/test-center/1.png" alt="To test the strength">
+                    <img src="images/test-center/2.png" alt="To test the strength">
+                    <h3>To test the strength</h3>
+                    <!-- <p>严格把控产品质量</p> -->
+                </div>
+                <div class="test-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/test-center/3.png" alt="To test boiling time">
+                    <img src="images/test-center/4.png" alt="To test boiling time">
+                    <h3>To test boiling time</h3>
+                    <!-- <p>确保产品安全环保</p> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 data-aos="fade-up">Contact Us</h2>
+            <div class="contact-info" data-aos="fade-up">
+                <!-- <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Company</h3>
+                    <p></p>
+                </div> -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Xu Zhou TONG XIN HE IMPORT& EXPORT CO.,LTD</h3>
+                    <p><a href="https://maps.app.goo.gl/jS5XDEuu8dnzcEH1A" target="_blank">12# Tong Cheng Century
+                            Square, YunHe Town PiZhou City,Jiangsu
+                            Province,China</a></p>
+                    <p></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Contact Information</h3>
+                    <p>TEL&FAX: <a href="tel:+0086-516-86515889">0086-516-86515889</a></p>
+                    <p>MOB：<a href="tel:+86-159-49010222">0086-159-49010222</a></p>
+                    <p>EMAIL:<a href="mailto:cassieplywood@gmail.com">cassieplywood@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2020-2025 TONG XIN HE . All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

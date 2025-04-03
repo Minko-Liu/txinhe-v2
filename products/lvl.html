@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>TONG XIN HE COMPANY</title>
+	<meta name="description" content="TONG XIN HE COMPANY">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="../styles/main.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<main>
+		<section class="product-info-section">
+			<div class="container">
+				<div class="product-info-grid">
+					<div class="product-image-section">
+						<button class="scroll-button prev">
+							<i class="fas fa-chevron-left"></i>
+						</button>
+						<div class="product-image-scroll">
+							<div class="product-image-item">
+								<div class="product-image-wrapper">
+									<img src="../images/product/LVL.png" alt="VENEER">
+								</div>
+							</div>
+						</div>
+						<button class="scroll-button next">
+							<i class="fas fa-chevron-right"></i>
+						</button>
+						<div class="scroll-indicator"></div>
+					</div>
+					<div class="product-specs-table">
+						<table class="spec-table">
+							<tr>
+								<td>Product Name </td>
+								<td>LVL Accessories</td>
+							</tr>
+							<tr>
+								<td>Size(mm)</td>
+								<td>With:20 to 1220 ,Length 500 to 2440/Upon Request 9 t0 40</td>
+							</tr>
+							<tr>
+								<td>Thickness
+									Tolerance
+								</td>
+								<td>+/-0.5~1</td>
+							</tr>
+							<tr>
+								<td>Core</td>
+								<td>Poplar/Combi/Pine/Birch</td>
+							</tr>
+							<tr>
+								<td>Glue Surface </td>
+								<td>Okoume/Engineered veneer/Bleached Poplar</td>
+							</tr>
+							<tr>
+								<td>Utility</td>
+								<td>Upon Request </td>
+							</tr>
+							<tr>
+								<td>Density</td>
+								<td>500-700</td>
+							</tr>
+							<tr>
+								<td>Moisture Content(%)</td>
+								<td>8</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- 图片预览模态框 -->
+	<div class="image-modal">
+		<div class="modal-content">
+			<button class="close-modal">&times;</button>
+			<img src="" alt="Preview">
+		</div>
+	</div>
+
+	<footer>
+		<div class="container">
+			<p>&copy; 2020-2025 TONG XIN HE . All Rights Reserved.</p>
+		</div>
+	</footer>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			// 获取所有需要的DOM元素
+			const imageSection = document.querySelector('.product-image-section');
+			const imageItems = document.querySelectorAll('.product-image-item');
+			const scrollContainer = document.querySelector('.product-image-scroll');
+			const prevButton = document.querySelector('.scroll-button.prev');
+			const nextButton = document.querySelector('.scroll-button.next');
+			const scrollDots = document.querySelector('.scroll-indicator');
+			const modal = document.querySelector('.image-modal');
+			const modalImg = document.querySelector('.modal-content img');
+			const closeModal = document.querySelector('.close-modal');
+
+			// 如果只有一张图片，添加single-image类
+			if (imageItems.length === 1) {
+				imageSection.classList.add('single-image');
+			}
+
+			// 创建滚动指示点
+			imageItems.forEach((_, index) => {
+				const dot = document.createElement('button');
+				dot.classList.add('scroll-dot');
+				if (index === 0) dot.classList.add('active');
+				scrollDots.appendChild(dot);
+
+				// 点击指示点滚动到对应图片
+				dot.addEventListener('click', () => {
+					const targetScroll = index * imageItems[0].offsetWidth;
+					scrollContainer.scrollTo({
+						left: targetScroll,
+						behavior: 'smooth'
+					});
+				});
+			});
+
+			// 更新滚动指示点状态
+			const updateDots = () => {
+				const scrollPosition = scrollContainer.scrollLeft;
+				const itemWidth = imageItems[0].offsetWidth;
+				const activeIndex = Math.round(scrollPosition / itemWidth);
+
+				document.querySelectorAll('.scroll-dot').forEach((dot, index) => {
+					dot.classList.toggle('active', index === activeIndex);
+				});
+			};
+
+			// 滚动事件处理
+			scrollContainer.addEventListener('scroll', updateDots);
+
+			// 左右按钮点击事件
+			if (prevButton && nextButton) {
+				prevButton.addEventListener('click', () => {
+					scrollContainer.scrollBy({
+						left: -imageItems[0].offsetWidth,
+						behavior: 'smooth'
+					});
+				});
+
+				nextButton.addEventListener('click', () => {
+					scrollContainer.scrollBy({
+						left: imageItems[0].offsetWidth,
+						behavior: 'smooth'
+					});
+				});
+			}
+
+			// 图片点击预览
+			imageItems.forEach(item => {
+				item.addEventListener('click', () => {
+					const imgSrc = item.querySelector('img').src;
+					modalImg.src = imgSrc;
+					modal.classList.add('active');
+				});
+			});
+
+			// 关闭预览
+			if (closeModal) {
+				closeModal.addEventListener('click', () => {
+					modal.classList.remove('active');
+				});
+			}
+			// 点击模态框背景关闭
+			modal.addEventListener('click', (e) => {
+				if (e.target === modal) {
+					modal.classList.remove('active');
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>
